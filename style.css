@@ -23,6 +23,7 @@ body{
 }
 nav{
     display:flex;
+    flex-wrap: wrap;
     align-items:center;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -611,20 +612,88 @@ form input, form textarea{
 }
 /*------------ CSS for Small Screens------------*/
 @media only screen and (max-width: 700px){
-  #header{
+  nav .logo {
+    width: 135px;
+    height: 177px;
+    position: absolute;
+    padding-left: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 58px;
+    padding-right: 2px;
+
+  }
+ 
+  nav ul {
+    margin-top: 78px;
+    margin-left: 52px;
+    padding-left: -18px;
+    padding-top: 3px;
+}
+  #header {
     background-image: url(pics/frst\ img\ small.jpg);
-  
-  }
-  .header-text{
-    margin-left: 330px;
-    font-size: 9px;
+    background-size: 115%;
+    padding-top: -6px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
     
-  }
-  .header-text h1{
-    font-size: 17px;
-    padding-left: 20px;
-  }
-  .header-text h4{
-    font-size: 8px;
-  }
+  
+  
+
+  
+.header-text {
+  margin-top: 130%;
+  margin-left: 50px;
+  font-size: 15px;
+}
+.header-text h1 {
+  font-size: 34px;
+  margin-top: 12px;
+  color: #0be136;
+}
+  
+
+.about-col-1 img {
+  width: 332%;
+  height: 512px;
+  position: relative;
+  padding-left: -23px;
+  padding-right: 40px;
+  padding-bottom: 43px;
+  border-radius: 27px;
+  align-items: center;
+  justify-content: center;
+}
+.sub-title {
+  font-size: 31px;
+  text-decoration: underline;
+  font-weight: 550;
+  color: #fff;
+}
+.about-col-2 p {
+  padding-left: 0px;
+  position: relative;
+  font-size: 9px;
+  font-weight: 100;
+}
+.tab-contents ul li {
+  list-style: none;
+  margin: 10px 0;
+  padding-left: 0px;
+  padding-left: 25px;
+}
+#services h1 {
+  padding-left: 46px;
+  text-decoration: underline;
+}
+.services-list div {
+  width: 317px;
+  margin-left: 31px;
+  background: #262626;
+  padding: 40px;
+  font-size: 15px;
+  font-weight: 250;
+  border-radius: 15px;
+  transition: background 0.5s,transform 0.5s;
 }
