@@ -613,19 +613,18 @@ form input, form textarea{
 /*------------ CSS for Small Screens------------*/
 @media only screen and (max-width: 700px){
   nav .logo {
-    width: 135px;
-    height: 177px;
+    width: 78px;
+    height: 147px;
     position: absolute;
     padding-left: 2px;
     display: flex;
     flex-wrap: wrap;
     padding-bottom: 58px;
     padding-right: 2px;
-
-  }
+}
  
   nav ul {
-    margin-top: 78px;
+    margin-top: 109px;
     margin-left: 52px;
     padding-left: -18px;
     padding-top: 3px;
@@ -643,9 +642,9 @@ form input, form textarea{
 
   
 .header-text {
-  margin-top: 130%;
-  margin-left: 50px;
-  font-size: 15px;
+  margin-top: 140%;
+  margin-left: 62px;
+  font-size: 16px;
 }
 .header-text h1 {
   font-size: 34px;
@@ -674,8 +673,14 @@ form input, form textarea{
 .about-col-2 p {
   padding-left: 0px;
   position: relative;
-  font-size: 9px;
-  font-weight: 100;
+  font-size: 13px;
+  font-weight: 200;
+}
+.tab-links.active-link{
+  font-size: 10px;
+}
+.tab-links p{
+  font-size: 10px;
 }
 .tab-contents ul li {
   list-style: none;
@@ -684,16 +689,82 @@ form input, form textarea{
   padding-left: 25px;
 }
 #services h1 {
-  padding-left: 46px;
+  padding-left: 98px;
   text-decoration: underline;
 }
 .services-list div {
-  width: 317px;
-  margin-left: 31px;
+  width: 364px;
+  margin-left: 16px;
   background: #262626;
   padding: 40px;
   font-size: 15px;
   font-weight: 250;
   border-radius: 15px;
   transition: background 0.5s,transform 0.5s;
+}
+#portfolio h1 {
+  padding-left: 111px;
+  text-decoration: underline;
+  padding-bottom: 0px;
+}
+.work h2 {
+  position: absolute;
+  font-size: 25px;
+  font-weight: 500;
+  margin-top: 70px;
+  margin-bottom: 0px;
+  padding-left: 76px;
+  text-decoration: underline;
+}
+.layer p {
+  font-size: 14px;
+  padding-left: 21px;
+  padding-right: 38px;
+}
+.glowing-btn {
+  font-size: 1em;
+  position: relative;
+  margin-left: 79px;
+  margin-top: 85px;
+}
+.contact-left p {
+  padding-left: -19px;
+  padding-right: 13px;
+  position: relative;
+  margin-left: 82px;
+}
+.fa-paper-plane {
+  content: "\f1d8";
+  position: relative;
+  margin-left: -66px;
+  margin-bottom: -7px;
+}
+.contact-left p i {
+  color: rgb(7, 226, 58);
+  margin-right: 15px;
+  margin-left: -45px;
+  font-size: 30px;
+}
+.social-icons {
+  
+  display: flex;
+  margin-left: -43px;
+  margin-top: 54px;
+}
+.contact-right form {
+  padding-left: 12px;
+  margin-left: 63px;
+}
+form input, form textarea {
+  width: 139%;
+  border: 0;
+  outline: none;
+  background: #262626;
+  padding: 15px;
+  margin-top: 20px;
+  /* margin-right: 2px; */
+  margin-left: -30px;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 10px;
 }
