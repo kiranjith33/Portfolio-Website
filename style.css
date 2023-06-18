@@ -4,9 +4,6 @@
   font-family: 'Poppins',sans-serif;
   box-sizing: border-box;
 }
-html{
-  scroll-behavior: smooth 0.5s;
-}
 body{
   background: #000;
   color: #fff;
@@ -24,6 +21,13 @@ body{
 margin:0 30px 0 0px;
   
 }
+ul {
+  display: flex;
+  position: absolute;
+  /* padding-left: 213px; */
+  margin-left: 777px;
+  padding-right: 0px;
+}
 nav{
   display:flex;
   flex-wrap: wrap;
@@ -31,24 +35,25 @@ nav{
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
 .logo{
   width:230px;
   height:200px;
   padding-left: 30px;
 }
 nav ul li{
-  display : inline-block;
+
   list-style : none;
   margin: 10px 20px;
-  
 
 }
 nav ul li a {
-  color : #fff;
-  text-decoration :none;
-  font-size : 20px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
   position: relative;
-  
+  margin-left: 35px;
+  padding: -7px;
 }
 nav ul li a::after{
   content: '';
@@ -96,7 +101,6 @@ font-weight: 800;
 padding-left: 100px;
 color: #0be136;
 }
-
 
 /*----------About-----------------*/
 
@@ -178,10 +182,6 @@ color: #0be136;
 }
 .tab-contents.active-tab{
   display: block;
-}
-.fa-solid, .fas {
-  font-weight: 900;
-  display: none;
 }
 
 /*-------------Services------------*/
@@ -619,11 +619,13 @@ margin-top: 20px;
 .copyright i{
 color: red;
 }
-.fa-solid, .fas {
-  
-  display: none;
-}
 
+.fa-solid, .fas {
+  font-weight: 900;
+  display: none;
+  visibility:hidden;
+  
+}
 /*------------ CSS for Small Screens------------*/
 @media only screen and (max-width: 700px){
 nav .logo {
@@ -638,11 +640,20 @@ nav .logo {
 }
 
 nav ul {
-  margin-top: 109px;
-  margin-left: 52px;
-  padding-left: -18px;
-  padding-top: 3px;
+  background: #ff004f;
+  position: fixed;
+  top: -110px;
+  /* right: -200px; */
+  /* right: 100px; */
+  margin-right: 1033px;
+  margin-left: 176px;
+  width: 200px;
+  height: 100vh;
+  padding-top: 50px;
+  z-index: 2;
+  transition: right 0.5s;
 }
+
 #header {
   background-image: url(pics/frst\ img\ small.jpg);
   background-size: 115%;
@@ -652,54 +663,8 @@ nav ul {
 }
   
 
-nav .fa-solid, .fas {
-  font-weight: 900;
-  display: block;
-  position: relative;
-  font-size: 25px;
-  padding-left: 274px;
-  /* margin-left: 293px; */
-  padding-bottom: 169px;
-  /* margin-right: -10px; */
-  /* margin-bottom: 175px; */
-  padding-top: 14px;
-}
-nav .fa-solid, .fa-bars{
-  display: block;
-  right: 0;
-}
-nav ul {
-  background: #ff004f;
-  position: fixed;
-  top: -110px;
-   
-  /* right: -200px; */
-  /* right: 100px; */
-  margin-right: 1033px;
-  margin-left: 145px;
-  width: 200px;
-  height: 100vh;
-  padding-top: 50px;
-  z-index: 2;
-  transition: right 0.5s ;
-}
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 24px;
-  position: relative;
-  padding-left: 36px;
-}
-nav ul .fa-solid {
-  position: absolute;
-  padding-bottom: -15px;
-  /* top: 139px; */
-  /* left: -33px; */
-  padding-left: -18px;
-  /* right: 81px; */
-  padding-right: 28px;
-  /* cursor: pointer; */
-}
+
+
 
 .header-text {
   margin-top: 120%;
@@ -816,7 +781,7 @@ margin-top: 54px;
 padding-left: 12px;
 margin-left: 63px;
 }
-.form input, form textarea {
+form input, form textarea {
 width: 139%;
 border: 0;
 outline: none;
