@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 html{
-  scroll-behavior: smooth;
+  scroll-behavior: smooth 0.5s;
 }
 body{
   background: #000;
@@ -623,20 +623,7 @@ color: red;
   
   display: none;
 }
-.fa-bars:before, .fa-navicon:before {
-  content: "\f0c9";
-  display: none;
-}
-.fa-times:before, .fa-xmark:before {
-  content: "\f00d";
-  display: none;
-}
-#sidemenu {
-  display: flex;
-  margin-left: 294px;
-  padding-right: -14px;
-  width: 309px;
-}
+
 /*------------ CSS for Small Screens------------*/
 @media only screen and (max-width: 700px){
 nav .logo {
