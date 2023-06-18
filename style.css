@@ -566,7 +566,7 @@ padding: 14px 50px;
 border-radius: 10px;
 text-decoration: none;
 color: #fff;
-transition: background: 0.5s;
+transition: background 0.5s;
 
 }
 .btn.btn1:hover{
@@ -601,7 +601,7 @@ font-weight: 700;
 border-radius: 10px;
 text-decoration: none;
 color: #fff;
-transition: background: 0.6s;
+transition: background 0.6s;
 
 }
 .btn.btn2:hover{
@@ -672,6 +672,7 @@ nav ul {
   background: #ff004f;
   position: fixed;
   top: -110px;
+  display: none; 
   /* right: -200px; */
   /* right: 100px; */
   margin-right: 1033px;
@@ -815,7 +816,7 @@ margin-top: 54px;
 padding-left: 12px;
 margin-left: 63px;
 }
-form input, form textarea {
+.form input, form textarea {
 width: 139%;
 border: 0;
 outline: none;
