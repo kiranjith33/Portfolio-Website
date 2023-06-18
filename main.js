@@ -9,17 +9,17 @@ function opentab(tabname){
         tabcontent.classList.remove("active-tab");
     }
 
-    Event.currentTarget.classList.add("active-link");
+    event.currentTarget.classList.add("active-link");
     document.getElementById(tabname).classList.add("active-tab");
     
     
 
 }
-let sideMenu = document.getElementById("sidemenu");
+ let sideMenu = document.getElementById("sidemenu");
     
     function closeMenu(){
         sideMenu.style.right = "964px"
-    }
-    function openMenu(){
-        sideMenu.style.right = "0";
+     }
+   function openMenu(){
+         sideMenu.style.right = "0";
     }
