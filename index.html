@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Kiranjith A M — Cloud Engineer, IT Administrator and SOC Analyst portfolio">
+<title>Kiranjith A M | IT Infrastructure & Security</title>
+<style>
+:root{
+ --bg:#020604;--panel:#06100a;--panel2:#09150e;--text:#effff5;--muted:#9bb0a4;
+ --accent:#35ff86;--accent2:#00cfff;--line:rgba(53,255,134,.20);--line-hover:rgba(53,255,134,.55);--icon-glow:rgba(53,255,134,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-2;background-image:linear-gradient(rgba(53,255,134,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(53,255,134,.025) 1px,transparent 1px);background-size:46px 46px}
+body:after{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 15% 15%,rgba(53,255,134,.09),transparent 28%),radial-gradient(circle at 85% 65%,rgba(0,207,255,.055),transparent 30%)}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);box-shadow:0 0 16px var(--accent);z-index:999}
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);width:min(1160px,94%);height:58px;z-index:100;display:flex;align-items:center;padding:0 16px;border:1px solid var(--line);border-radius:14px;background:rgba(2,8,5,.86);backdrop-filter:blur(18px);box-shadow:0 18px 60px rgba(0,0,0,.45)}
+.brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:.92rem;letter-spacing:.04em;white-space:nowrap}
+.terminal-logo{width:29px;height:23px;border:1px solid var(--accent);border-radius:5px;display:grid;place-items:center;color:var(--accent);font:800 .65rem ui-monospace,monospace;box-shadow:0 0 15px rgba(53,255,134,.2)}
+.navlinks{margin:auto;display:flex;gap:25px;align-items:center}
+.navlinks a{font-size:.88rem;color:#a5b8ad;padding:19px 0;position:relative}
+.navlinks a:after{content:"";position:absolute;left:0;right:0;bottom:10px;height:2px;background:var(--accent);transform:scaleX(0);transition:.25s}
+.navlinks a:hover,.navlinks a.active{color:#fff}.navlinks a:hover:after,.navlinks a.active:after{transform:scaleX(1)}
+.theme-toggle,.menu{border:1px solid var(--accent);background:rgba(53,255,134,.05);color:var(--accent);cursor:pointer;border-radius:9px}
+.nav-actions{margin-left:auto;display:flex;align-items:center;gap:8px}.theme-toggle{width:37px;height:37px;font-size:1.05rem;box-shadow:0 0 16px rgba(53,255,134,.15)}
+.menu{display:none;margin-left:0;width:37px;height:37px;color:#fff;background:transparent;font-size:1.1rem}
+
+section{padding:100px 0;border-bottom:1px solid rgba(53,255,134,.11)}
+.hero{min-height:100vh;padding:120px 0 55px;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:38px;align-items:center}.hero-visual{height:500px;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#06111b;box-shadow:0 30px 90px rgba(0,0,0,.55),0 0 65px rgba(0,207,255,.08);position:relative}.hero-visual:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,6,10,.22),transparent 40%,rgba(0,0,0,.08));pointer-events:none}.hero-visual img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;filter:saturate(1.04) contrast(1.03)}
+.eyebrow,.kicker{font:700 clamp(.76rem,1vw,.84rem) ui-monospace,monospace;color:var(--accent);letter-spacing:.16em;text-transform:uppercase}
+.eyebrow:before,.kicker:before{content:"/ ";color:#678174}
+h1{font-size:clamp(2.45rem,4.25vw,4.15rem);line-height:.94;letter-spacing:-.065em;margin:17px 0}
+.hi{display:block;font:500 .3em Inter;letter-spacing:0;color:#9fb0a5;margin-bottom:12px}
+.gradient{background:linear-gradient(100deg,#fff 12%,var(--accent) 62%,var(--accent2));color:transparent;background-clip:text;-webkit-background-clip:text}
+.role{font:700 clamp(1rem,1.7vw,1.16rem) ui-monospace,monospace;color:var(--accent)}
+.hero-copy{max-width:600px;color:var(--muted);font-size:1rem;line-height:1.8;margin-top:17px}
+.buttons{display:flex;gap:10px;margin:23px 0;flex-wrap:wrap}
+.btn{padding:10px 17px;border:1px solid var(--accent);border-radius:8px;font-size:.78rem;font-weight:800;transition:.25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 28px rgba(53,255,134,.18)}
+.primary{background:var(--accent);color:#031009}
+.contact-mini{display:flex;gap:20px;flex-wrap:wrap;color:#a0b4a8;font-size:.84rem}.contact-mini b{color:var(--accent)}
+
+.command{min-height:500px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:linear-gradient(145deg,rgba(8,25,16,.94),rgba(2,8,5,.97));box-shadow:0 30px 90px rgba(0,0,0,.55),0 0 65px rgba(53,255,134,.06);position:relative}
+.command-top{height:54px;padding:0 17px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--line)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:.9}.dot:nth-child(2){opacity:.55}.dot:nth-child(3){opacity:.3}
+.command-title{margin-left:8px;font:600 .7rem ui-monospace,monospace;color:#cfe9da}.online{margin-left:auto;color:var(--accent);font:700 .58rem ui-monospace}
+.command-body{height:380px;position:relative;display:flex;align-items:center;justify-content:center}
+.terminal{width:72%;max-width:470px;border:1px solid rgba(53,255,134,.42);border-radius:10px;background:#010604;box-shadow:0 0 40px rgba(53,255,134,.10);z-index:2}
+.term-head{display:flex;justify-content:space-between;padding:10px 13px;border-bottom:1px solid var(--line);font:600 .58rem ui-monospace;color:#7e998a}
+.term-body{padding:16px;font:500 .68rem/2 ui-monospace,monospace;color:#c5ddd0}
+.term-body .ok{color:#4fcfff}.prompt{color:var(--accent)}.blink{animation:blink 1s infinite}
+.status-card{position:absolute;width:150px;height:112px;border:1px solid var(--accent);background:rgba(2,9,6,.85);padding:18px 16px;transform:skewY(-2deg);box-shadow:0 0 25px rgba(53,255,134,.05)}
+.status-card strong{display:block;color:#42cfff;font-size:.8rem}.status-card span{display:block;color:#88a89a;margin-top:18px;font-weight:700;font-size:.8rem}
+.status-left{left:8%;bottom:58px}.status-right{right:8%;bottom:58px;transform:skewY(2deg)}
+.command-quote{position:absolute;left:8%;bottom:25px;color:#43cfff;font:800 .86rem ui-monospace;letter-spacing:.12em;line-height:1.7}
+.command-quote span{display:block}.base-line{position:absolute;left:8%;right:8%;bottom:42px;height:3px;background:linear-gradient(90deg,var(--accent2),transparent 42%,transparent 58%,var(--accent2));box-shadow:0 0 16px rgba(0,207,255,.45)}
+.scroll{position:absolute;bottom:8px;left:50%;color:var(--accent);font:700 .65rem ui-monospace}
+
+.head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:30px}
+.head p{max-width:460px;color:var(--muted);font-size:.86rem}
+h2{font-size:clamp(2.1rem,4vw,3.2rem);line-height:1.05;letter-spacing:-.045em;margin-top:7px}
+.card{border:1px solid var(--line);background:rgba(5,17,10,.72);border-radius:11px;padding:26px;box-shadow:0 20px 55px rgba(0,0,0,.22);transition:.3s}
+.card:hover{transform:translateY(-4px);border-color:rgba(53,255,134,.38)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.about-text{color:var(--muted);font-size:.95rem;line-height:1.85}.about-text strong{color:#eafff0}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{padding:20px;border:1px solid var(--line);border-radius:9px;background:rgba(53,255,134,.025)}.stat strong{display:block;font-size:1.5rem}.stat span{font-size:.72rem;color:var(--muted)}.stat em{font-style:normal;color:var(--accent)}
+
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:20px}.filter{cursor:pointer;border:1px solid var(--line);background:transparent;color:#9db1a5;padding:8px 13px;border-radius:999px;font-size:.72rem}.filter.active,.filter:hover{background:var(--accent);color:#031009}
+.skills{display:grid;grid-template-columns:repeat(8,1fr);gap:9px}.skill{min-height:108px;padding:17px 7px;text-align:center;border:1px solid var(--line);border-radius:8px;background:rgba(3,12,7,.75);transition:.3s}.skill:hover{transform:translateY(-5px);border-color:var(--line-hover)}.icon{height:38px;display:grid;place-items:center;margin-bottom:8px}.tool-logo{width:43px;height:36px;object-fit:contain}.skill h3{font-size:.67rem}.skill p{font-size:.57rem;color:#6f887a}
+
+.timeline{position:relative}.job{display:grid;grid-template-columns:95px 1fr;gap:32px;margin-bottom:15px}.date{font:700 .7rem ui-monospace;color:var(--accent);padding-top:13px}.job-card{padding:23px}.job h3{font-size:1rem}.company{color:var(--accent);font-size:.75rem;margin:2px 0 10px}.current{font-size:.58rem;color:#031009;background:var(--accent);padding:4px 7px;border-radius:4px;font-weight:800}.jobtop{display:flex;justify-content:space-between;gap:15px}.job ul,.points{padding-left:18px;color:var(--muted);font-size:.84rem;line-height:1.75}.job li+li,.points li+li{margin-top:5px}
+
+.projects{display:grid;grid-template-columns:1fr;gap:16px}.project{display:grid;grid-template-columns:1fr 1.28fr;min-height:390px}.wazuh-visual-wrap{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:10px;min-width:0}.wazuh-visual-wrap .labvisual{min-width:0}.wazuh-visual-wrap .mini-quote{min-height:100%;border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,rgba(255,255,255,.025),rgba(0,0,0,.08));padding:18px}.project h3{font-size:1.4rem;margin:8px 0 11px}.project p{color:var(--muted);font-size:.84rem}.tags{display:flex;gap:6px;flex-wrap:wrap;margin:15px 0}.tag{font:700 .6rem ui-monospace;color:var(--accent);border:1px solid var(--line);border-radius:5px;padding:4px 7px}.labvisual{display:grid;place-items:center;border-left:1px solid var(--line);position:relative;overflow:hidden}.circle{width:165px;height:165px;border:1px solid var(--accent);border-radius:50%;display:grid;place-items:center;text-align:center;color:var(--accent);font:700 .68rem ui-monospace;box-shadow:0 0 55px rgba(53,255,134,.12);animation:pulse 2.5s infinite}.mini-quote{display:grid;place-items:center;text-align:center;min-height:320px}.mini-quote strong{font-size:1.5rem;line-height:1.3}.mini-quote span{color:var(--accent)}.mini-quote small{display:block;color:#6b8275;font:500 .6rem ui-monospace;margin-top:13px}
+
+.credentials{display:grid;grid-template-columns:1.2fr .8fr;gap:17px}.credgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.cred{display:flex;gap:11px;padding:15px;border:1px solid var(--line);border-radius:8px;background:rgba(53,255,134,.02)}.badge{width:30px;height:30px;flex:none;border:1px solid var(--line);border-radius:7px;display:grid;place-items:center;color:var(--accent);font:700 .54rem ui-monospace}.cred h3{font-size:.91rem;line-height:1.35}.cred p{color:var(--muted);font-size:.66rem}.edu{display:grid;gap:10px}.edu h3{font-size:.9rem;margin:5px 0}.edu p{font-size:.67rem;color:var(--muted)}
+.contact{padding:55px 20px;text-align:center;background:radial-gradient(circle at 50% 50%,rgba(53,255,134,.08),transparent 55%),rgba(5,17,10,.8)}.contact p{max-width:590px;margin:10px auto;color:var(--muted);font-size:.86rem}.email{color:var(--accent);font-weight:700;font-size:1rem}.contact-actions{justify-content:center}.social{display:flex;justify-content:center;gap:10px;margin-top:14px}.social a{width:40px;height:40px;border:1px solid var(--line);border-radius:10px;display:grid;place-items:center;color:var(--accent);font-weight:800;transition:transform .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease;background:rgba(255,255,255,.02)}.social a:hover{transform:translateY(-3px);border-color:var(--accent);color:var(--accent);box-shadow:0 0 18px rgba(53,255,134,.16)}.social svg{width:20px;height:20px;fill:currentColor;display:block}.social a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+footer{padding:27px 0 42px;display:flex;justify-content:space-between;color:#52695b;font-size:.65rem}
+.reveal{opacity:0;transform:translateY(20px);transition:.7s}.reveal.show{opacity:1;transform:none}
+@keyframes blink{50%{opacity:0}}@keyframes pulse{50%{box-shadow:0 0 75px rgba(53,255,134,.28)}}
+@media(max-width:1000px){.hero-grid,.about-grid,.projects,.credentials{grid-template-columns:1fr}.skills{grid-template-columns:repeat(4,1fr)}.project{grid-template-columns:1fr}.wazuh-visual-wrap{grid-template-columns:1fr}.wazuh-visual-wrap .mini-quote{min-height:150px}.labvisual{border-left:0;border-top:1px solid var(--line);min-height:220px}}
+@media(max-width:700px){nav{height:53px}.navlinks{display:none}.navlinks.open{display:flex;position:absolute;top:61px;left:0;right:0;background:rgba(2,8,5,.98);padding:10px 17px;border:1px solid var(--line);border-radius:12px;flex-direction:column;gap:0}.navlinks a{padding:9px}.menu{display:block}.hero{padding-top:105px}.role{font-size:1.04rem}.hero-grid{width:92%}.hero-visual{height:360px}.skills{grid-template-columns:repeat(2,1fr)}.terminal{width:88%}.status-card{width:120px}.status-left{left:3%}.status-right{right:3%}.command-quote{left:6%;font-size:.65rem}.job{grid-template-columns:1fr;gap:5px}.date{padding:0}.credgrid{grid-template-columns:1fr}.cred h3{font-size:.86rem}footer{flex-direction:column;gap:8px}}
+
+/* Original tool logos */
+.icon{height:50px;display:grid;place-items:center;margin-bottom:9px}
+.tool-logo{width:52px;height:46px;object-fit:contain;display:block;background:transparent;mix-blend-mode:normal;filter:drop-shadow(0 0 7px var(--icon-glow));transition:.3s}
+.skill:hover .tool-logo{transform:scale(1.12);filter:drop-shadow(0 0 13px var(--icon-glow))}
+
+
+
+
+/* Theme-reactive animated tool borders */
+.skill.tool-card{position:relative;isolation:isolate;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.skill.tool-card::after{content:"";position:absolute;inset:-1px;border-radius:9px;padding:1px;background:linear-gradient(120deg,transparent 15%,var(--accent) 48%,transparent 82%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transform:translateX(-35%);pointer-events:none;z-index:3}
+.skill.tool-card:hover{border-color:var(--accent);box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 35%,transparent),0 0 22px var(--icon-glow),inset 0 0 18px color-mix(in srgb,var(--accent) 8%,transparent);animation:toolThemePulse 1.35s ease-in-out infinite}
+.skill.tool-card:hover::after{opacity:1;animation:toolBorderSweep 1.15s linear infinite}
+@keyframes toolBorderSweep{to{transform:translateX(35%)}}
+@keyframes toolThemePulse{0%,100%{box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 28%,transparent),0 0 14px var(--icon-glow),inset 0 0 12px color-mix(in srgb,var(--accent) 6%,transparent)}50%{box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 55%,transparent),0 0 28px var(--icon-glow),inset 0 0 22px color-mix(in srgb,var(--accent) 12%,transparent)}}
+@media(prefers-reduced-motion:reduce){.skill.tool-card:hover,.skill.tool-card:hover::after{animation:none}}
+
+/* Reference-inspired Tools & Technologies layout */
+.tools-reference{max-width:1500px}
+.tool-filters{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 24px;padding:2px 0 4px}.tool-filters .filter{font-family:inherit;transition:.25s ease}.tool-group.is-hidden{display:none!important}
+.tools-layout{display:grid;grid-template-columns:1.25fr .95fr;gap:28px 34px;align-items:start}
+.tool-group{min-width:0}
+.m365-group{grid-column:1/-1}
+.tool-group-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:0 0 10px;padding-left:14px;border-left:5px solid var(--accent)}
+.tool-group-head h3{font-size:1.08rem;line-height:1.2;letter-spacing:-.02em}
+.tool-group-head span{color:#b9c9c0;font-size:.78rem}
+.tool-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.m365-group .tool-grid{grid-template-columns:repeat(12,minmax(0,1fr))}
+.skill.tool-card{min-width:0;min-height:132px;padding:12px 7px 10px;border:1px solid var(--line);border-radius:8px;background:rgba(3,12,7,.78);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow:hidden}
+.skill.tool-card:hover{transform:translateY(-4px);border-color:var(--line-hover)}
+.skill.tool-card .icon{width:100%;height:66px;margin:0 0 8px;display:grid;place-items:center;overflow:hidden;flex:0 0 66px}
+.skill.tool-card .tool-logo{width:72px;height:62px;max-width:100%;max-height:100%;object-fit:contain;display:block;filter:drop-shadow(0 0 6px var(--icon-glow));transition:transform .25s ease}
+.skill.tool-card:hover .tool-logo{transform:scale(1.06)}
+.skill.tool-card .kali-logo{width:84px;height:72px;filter:brightness(0) saturate(100%) invert(56%) sepia(95%) saturate(1840%) hue-rotate(184deg) brightness(101%) contrast(101%) drop-shadow(0 0 8px rgba(56,168,255,.42));}
+.skill.tool-card:hover .kali-logo{transform:scale(1.08);filter:brightness(0) saturate(100%) invert(56%) sepia(95%) saturate(1840%) hue-rotate(184deg) brightness(101%) contrast(101%) drop-shadow(0 0 15px rgba(56,168,255,.65));}
+.skill.tool-card h3{width:100%;font-size:.68rem;line-height:1.25;white-space:normal;overflow-wrap:anywhere;text-align:center}
+.skill.tool-card p{width:100%;font-size:.65rem;line-height:1.35;color:#7e9789;text-align:center;margin-top:4px;white-space:normal;overflow-wrap:anywhere}
+@media(max-width:1200px){.tools-layout{grid-template-columns:1fr}.m365-group{grid-column:auto}.m365-group .tool-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.tool-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:700px){.tools-reference .head{align-items:flex-start;flex-direction:column}.tool-group-head{padding-left:10px;border-left-width:4px}.tool-group-head h3{font-size:.95rem}.tool-group-head span{font-size:.66rem}.tool-grid,.m365-group .tool-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.skill.tool-card{min-height:128px;padding:11px 7px 9px}.skill.tool-card .icon{height:62px;flex-basis:62px}.skill.tool-card .tool-logo{width:68px;height:58px}.skill.tool-card h3{font-size:.67rem}.skill.tool-card p{font-size:.62rem}}
+
+/* Lightweight 3-state theme switch — no emoji, no text */
+.theme-switch{position:relative;width:56px;height:32px;padding:0;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:rgba(255,255,255,.07);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 5px 18px rgba(0,0,0,.18);display:grid;place-items:center;cursor:pointer;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.theme-switch-track{position:relative;width:48px;height:24px;border-radius:999px;background:rgba(255,255,255,.055);box-shadow:inset 0 1px 3px rgba(0,0,0,.25);overflow:hidden}
+.theme-switch-dots{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-around;padding:0 7px;pointer-events:none}
+.theme-switch-dots i{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.32);box-shadow:0 0 5px rgba(255,255,255,.12);transition:.25s ease}
+.theme-switch-thumb{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--accent);box-shadow:0 2px 8px rgba(0,0,0,.28),0 0 10px var(--accent),0 0 20px var(--icon-glow);border:1px solid rgba(255,255,255,.58);transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s ease,box-shadow .3s ease}
+.theme-switch:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.42);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 8px 22px rgba(0,0,0,.22),0 0 16px var(--icon-glow)}
+.theme-switch:active{transform:scale(.97)}
+.theme-switch[data-theme="green"] .theme-switch-dots i:nth-child(1),.theme-switch[data-theme="blue"] .theme-switch-dots i:nth-child(2),.theme-switch[data-theme="red"] .theme-switch-dots i:nth-child(3){background:var(--accent);box-shadow:0 0 8px var(--icon-glow)}
+.theme-switch[data-theme="blue"] .theme-switch-thumb{transform:translateX(15px);background:#38a8ff;box-shadow:0 2px 8px rgba(0,0,0,.28),0 0 10px #38a8ff,0 0 22px rgba(56,168,255,.72)}
+.theme-switch[data-theme="red"] .theme-switch-thumb{transform:translateX(27px);background:#ff405d;box-shadow:0 2px 8px rgba(0,0,0,.28),0 0 10px #ff405d,0 0 22px rgba(255,64,93,.72)}
+.theme-switch[data-theme="green"] .theme-switch-thumb{background:#35ff86;box-shadow:0 2px 8px rgba(0,0,0,.28),0 0 10px #35ff86,0 0 22px rgba(53,255,134,.72)}
+
+@keyframes spark{0%,100%{opacity:.25;transform:scale(.7) rotate(0)}50%{opacity:.95;transform:scale(1.1) rotate(18deg)}}
+
+/* Premium SOC orbit visual */
+.soc-visual{background:radial-gradient(circle at 50% 46%,rgba(53,255,134,.12),transparent 46%),radial-gradient(circle at 30% 20%,rgba(0,207,255,.06),transparent 30%),linear-gradient(135deg,rgba(255,255,255,.018),transparent);isolation:isolate;position:relative;overflow:hidden}
+.soc-visual:before{content:"";position:absolute;inset:8%;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:24px 24px;mask-image:radial-gradient(circle,black,transparent 70%);opacity:.75}
+.soc-console{width:min(320px,94%);height:244px;position:relative;border:1px solid rgba(255,255,255,.12);border-radius:24px;background:linear-gradient(145deg,rgba(10,20,16,.72),rgba(3,9,14,.88));box-shadow:0 25px 65px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.09),0 0 45px rgba(53,255,134,.09);overflow:hidden;animation:consoleFloat 5.5s ease-in-out infinite}
+.soc-console:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.055) 46%,transparent 68%);transform:translateX(-110%);animation:glassSweep 6.5s ease-in-out infinite;pointer-events:none}
+.soc-orbit{position:absolute;left:50%;top:48%;border:1px solid rgba(101,255,173,.14);border-radius:50%;transform:translate(-50%,-50%) rotate(-12deg);box-shadow:0 0 18px rgba(53,255,134,.035);}
+.orbit-a{width:176px;height:82px;animation:orbitSpin 8s linear infinite}
+.orbit-b{width:126px;height:126px;transform:translate(-50%,-50%) rotate(28deg);border-color:rgba(0,207,255,.14);animation:orbitSpinReverse 10s linear infinite}
+.orbit-c{width:222px;height:142px;animation:orbitSpin 12s linear infinite}
+.soc-core{position:absolute;left:50%;top:48%;width:67px;height:67px;transform:translate(-50%,-50%);display:grid;place-items:center;align-content:center;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(126,255,191,.3),rgba(6,22,16,.94) 66%);border:1px solid rgba(126,255,191,.5);box-shadow:0 0 30px rgba(53,255,134,.16),inset 0 1px 0 rgba(255,255,255,.12);animation:corePulse 2.7s ease-in-out infinite;z-index:2}
+.soc-core b{font:900 .62rem ui-monospace;color:#d9ffe9;letter-spacing:.1em}.soc-core small{font:800 .35rem ui-monospace;color:#65ffad;letter-spacing:.18em;margin-top:2px}
+.core-ring{position:absolute;inset:-6px;border:1px solid rgba(101,255,173,.18);border-radius:50%;animation:ringPulse 2.7s ease-in-out infinite}
+.soc-node{position:absolute;display:flex;align-items:center;gap:5px;padding:5px 7px;border:1px solid rgba(255,255,255,.08);border-radius:999px;background:rgba(255,255,255,.035);backdrop-filter:blur(8px);font:800 .39rem ui-monospace;color:#9ab7a6;letter-spacing:.08em;box-shadow:inset 0 1px 0 rgba(255,255,255,.05);z-index:3}
+.soc-node i{width:5px;height:5px;border-radius:50%;background:#65ffad;box-shadow:0 0 8px rgba(101,255,173,.75);animation:livePulse 1.6s infinite}.node-1{left:28px;top:63px}.node-2{right:28px;top:71px}.node-3{left:38px;bottom:65px}.node-4{right:36px;bottom:57px}.node-2 i{background:#ffd166}.node-3 i{background:#62d5ff}
+.soc-event-card{position:absolute;left:50%;bottom:15px;transform:translateX(-50%);width:178px;padding:8px 11px;border:1px solid rgba(255,255,255,.08);border-radius:11px;background:rgba(4,12,9,.65);backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 rgba(255,255,255,.05);display:grid;grid-template-columns:7px 1fr;column-gap:7px;z-index:4}.soc-event-card strong{font:800 .43rem ui-monospace;color:#bfe9cf;letter-spacing:.1em}.soc-event-card small{grid-column:2;color:#607b6c;font:600 .38rem ui-monospace;margin-top:2px}.event-live{width:5px;height:5px;border-radius:50%;background:#65ffad;box-shadow:0 0 9px rgba(101,255,173,.9);margin-top:2px;animation:livePulse 1.4s infinite}
+.soc-scan{position:absolute;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(101,255,173,.65),transparent);box-shadow:0 0 10px rgba(101,255,173,.45);animation:scan 4.2s linear infinite;z-index:5}.soc-status{position:absolute;left:14px;top:14px;color:#78dca1;font:800 .39rem ui-monospace;letter-spacing:.09em;z-index:4}.soc-status i{display:inline-block;width:5px;height:5px;border-radius:50%;background:#65ffad;box-shadow:0 0 8px rgba(101,255,173,.8);margin-right:4px}
+@keyframes consoleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes glassSweep{0%,62%{transform:translateX(-110%)}88%,100%{transform:translateX(110%)}}
+@keyframes orbitSpin{from{transform:translate(-50%,-50%) rotate(-12deg)}to{transform:translate(-50%,-50%) rotate(348deg)}}
+@keyframes orbitSpinReverse{from{transform:translate(-50%,-50%) rotate(28deg)}to{transform:translate(-50%,-50%) rotate(-332deg)}}
+@keyframes corePulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.045)}}
+@keyframes ringPulse{0%,100%{opacity:.35;transform:scale(.96)}50%{opacity:.9;transform:scale(1.06)}}
+@keyframes livePulse{0%,100%{opacity:.45;transform:scale(.75)}50%{opacity:1;transform:scale(1.25)}}
+@keyframes scan{0%{top:40px;opacity:0}15%{opacity:.65}85%{opacity:.65}100%{top:205px;opacity:0}}
+@media(max-width:700px){.theme-switch{width:52px;height:30px}.theme-switch-track{width:44px;height:22px}.soc-console{width:270px;height:220px}.orbit-a{width:155px}.orbit-c{width:195px}}
+</style>
+
+<style>
+/* Final mobile navbar stability patch */
+nav{
+  overflow:visible;
+  isolation:isolate;
+}
+.brand{
+  flex:0 1 auto;
+  min-width:0;
+  position:relative;
+  z-index:3;
+}
+.nav-actions{
+  flex:0 0 auto;
+  position:relative;
+  z-index:5;
+}
+.theme-switch{
+  flex:0 0 auto;
+  touch-action:manipulation;
+}
+.menu{
+  position:relative;
+  flex:0 0 37px;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+  line-height:1;
+  touch-action:manipulation;
+  z-index:6;
+}
+.menu span{
+  position:absolute;
+  width:16px;
+  height:1.5px;
+  border-radius:2px;
+  background:currentColor;
+  transition:transform .22s ease,opacity .22s ease,top .22s ease;
+}
+.menu span:nth-child(1){top:11px}
+.menu span:nth-child(2){top:17px}
+.menu span:nth-child(3){top:23px}
+.menu.is-open span:nth-child(1){top:17px;transform:rotate(45deg)}
+.menu.is-open span:nth-child(2){opacity:0}
+.menu.is-open span:nth-child(3){top:17px;transform:rotate(-45deg)}
+@media(max-width:700px){
+  nav{
+    width:calc(100% - 20px);
+    height:54px;
+    padding:0 9px 0 12px;
+    top:10px;
+    border-radius:14px;
+  }
+  .brand{
+    min-width:0;
+    max-width:calc(100% - 104px);
+    overflow:hidden;
+  }
+  .brand span:last-child{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+  .nav-actions{
+    margin-left:auto;
+    gap:6px;
+  }
+  .theme-switch{width:50px;height:32px}
+  .theme-switch-track{width:42px;height:22px}
+  .theme-switch-thumb{width:17px;height:17px;top:2px;left:2px}
+  .theme-switch[data-theme="blue"] .theme-switch-thumb{transform:translateX(13px)}
+  .theme-switch[data-theme="red"] .theme-switch-thumb{transform:translateX(23px)}
+  .menu{display:flex;width:36px;height:36px}
+  .navlinks.open{
+    top:62px;
+    left:0;
+    right:0;
+    width:100%;
+    z-index:20;
+    box-shadow:0 18px 40px rgba(0,0,0,.38);
+  }
+  .navlinks.open a{width:100%;text-align:left;padding:11px 9px}
+}
+@media(max-width:380px){
+  nav{padding-left:9px}
+  .brand{max-width:calc(100% - 98px);font-size:.78rem}
+  .terminal-logo{width:27px;height:22px}
+  .theme-switch{width:46px}
+  .theme-switch-track{width:39px}
+  .theme-switch[data-theme="blue"] .theme-switch-thumb{transform:translateX(12px)}
+  .theme-switch[data-theme="red"] .theme-switch-thumb{transform:translateX(21px)}
+  .menu{width:34px;flex-basis:34px}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<nav>
+<a class="brand" href="#home"><span class="terminal-logo">&gt;_</span><span>KIRANJITH A M</span></a>
+<div class="navlinks" id="navlinks">
+<a class="active" href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#credentials">Certifications</a><a href="#contact">Contact</a>
+</div>
+<div class="nav-actions"><button class="theme-toggle theme-switch" id="themeToggle" type="button" aria-label="Change theme" title="Change theme"><span class="theme-switch-track" aria-hidden="true"><span class="theme-switch-dots"><i></i><i></i><i></i></span><span class="theme-switch-thumb"></span></span></button><button class="menu" id="menu" type="button" aria-label="Open navigation menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+</nav>
+
+<section class="hero" id="home">
+<div class="container hero-grid">
+<div class="reveal">
+<div class="eyebrow">IT • CLOUD • NETWORK • SECURITY</div>
+<h1><span class="hi">Hello, I'm</span>KIRANJITH <span class="gradient">A M</span></h1>
+<div class="role"><span id="typing"></span><span class="blink">_</span></div>
+<p class="hero-copy">A self-taught IT professional passionate about building secure, scalable and efficient IT environments. I enjoy solving complex problems, exploring new technologies and keeping systems secure and running smoothly.</p>
+<div class="buttons"><a class="btn primary" href="#contact">↗ Get In Touch</a><a class="btn" href="#projects">◉ View My Work</a></div>
+<div class="contact-mini"><span><b>☎</b> +91 7907797617</span><span><b>⌖</b> Thiruvananthapuram, Kerala</span><span><b>✉</b> kiranjith.am@gmail.com</span></div>
+</div>
+<div class="hero-visual reveal"><img src="assets/hero-it-admin-quote.png" alt="IT administration workspace with security quote"></div>
+</div>
+<div class="scroll">SCROLL ↓</div>
+</section>
+
+<section id="about"><div class="container">
+<div class="head reveal"><div><div class="kicker">01. About Me</div><h2>Turning Technology<br>Into <span class="gradient">Opportunities</span></h2></div><p>Real-world systems administration, networking and cybersecurity experience with a hands-on approach to solving IT problems.</p></div>
+<div class="about-grid"><div class="card reveal"><p class="about-text">Hi, I’m <strong>Kiranjith A M</strong>, a self-taught IT professional who genuinely enjoys taking on new tech challenges and figuring out how things work under the hood. My background spans systems administration, networking, and cybersecurity. I focus on building stable cloud and network setups, keeping systems secure, and making everyday IT operations run smoothly.</p></div>
+<div class="stats"><div class="stat reveal"><strong>3+</strong><span>YEARS OF EXPERIENCE</span></div><div class="stat reveal"><strong>10+</strong><span>TECHNOLOGIES</span></div><div class="stat reveal"><strong>Always</strong><span>LEARNING</span></div><div class="stat reveal"><strong><em>Secure</em></strong><span>BY DEFAULT</span></div></div></div>
+</div></section>
+
+<section id="skills"><div class="container tools-reference"><div class="head reveal"><div><div class="kicker">02. Core Skills</div><h2>Tools I <span class="gradient">Work With</span></h2></div><p>Technologies and tools I use in my day-to-day work and learning journey.</p></div><div class="tool-filters" aria-label="Tool categories">
+<button class="filter active" type="button" data-filter="all">All</button>
+<button class="filter" type="button" data-filter="m365">Microsoft 365</button>
+<button class="filter" type="button" data-filter="cloud">Cloud</button>
+<button class="filter" type="button" data-filter="network">Networking & Security</button>
+<button class="filter" type="button" data-filter="security">Security Tools</button>
+<button class="filter" type="button" data-filter="monitoring">Monitoring & IT</button>
+<button class="filter" type="button" data-filter="os">Operating Systems</button>
+<button class="filter" type="button" data-filter="hardware">Hardware</button>
+<button class="filter" type="button" data-filter="other">Other Tools</button>
+</div><div class="tools-layout"><div class="tool-group m365-group reveal" data-category="m365"><div class="tool-group-head"><h3>Microsoft 365 Apps</h3><span>Productivity & Collaboration</span></div><div class="tool-grid"><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/m365.svg" alt="Microsoft 365 logo" loading="lazy"></div><h3>Microsoft 365</h3><p>Administration</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-outlook.png" alt="Outlook logo" loading="lazy"></div><h3>Outlook</h3><p>Email</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-word.png" alt="Word logo" loading="lazy"></div><h3>Word</h3><p>Documents</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-excel.png" alt="Excel logo" loading="lazy"></div><h3>Excel</h3><p>Spreadsheets</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-powerpoint.png" alt="PowerPoint logo" loading="lazy"></div><h3>PowerPoint</h3><p>Presentations</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-onedrive.png" alt="OneDrive logo" loading="lazy"></div><h3>OneDrive</h3><p>Cloud Storage</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-sharepoint.png" alt="SharePoint logo" loading="lazy"></div><h3>SharePoint</h3><p>Content Management</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-teams.png" alt="Teams logo" loading="lazy"></div><h3>Teams</h3><p>Collaboration</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-copilot.png" alt="Copilot logo" loading="lazy"></div><h3>Copilot</h3><p>AI Assistant</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-onenote.png" alt="OneNote logo" loading="lazy"></div><h3>OneNote</h3><p>Note Taking</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-entra.png" alt="Entra ID logo" loading="lazy"></div><h3>Entra ID</h3><p>Identity / IAM</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-intune.png" alt="Intune logo" loading="lazy"></div><h3>Intune</h3><p>Endpoint Management</p></div></div></div><div class="tool-group reveal" data-category="cloud"><div class="tool-group-head"><h3>Cloud Platforms</h3></div><div class="tool-grid"><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-azure.png" alt="Microsoft Azure logo" loading="lazy"></div><h3>Microsoft Azure</h3><p>Cloud Platform</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-aws.png" alt="AWS logo" loading="lazy"></div><h3>AWS</h3><p>Cloud Platform</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-windows-server.png" alt="Windows Server logo" loading="lazy"></div><h3>Windows Server</h3><p>Server OS</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-active-directory.png" alt="Active Directory logo" loading="lazy"></div><h3>Active Directory</h3><p>Directory Services</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-group-policy.png" alt="Group Policy logo" loading="lazy"></div><h3>Group Policy</h3><p>Windows Policy</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-azure-vm.png" alt="Azure VM logo" loading="lazy"></div><h3>Azure VM</h3><p>Virtualization</p></div></div></div><div class="tool-group reveal" data-category="network"><div class="tool-group-head"><h3>Networking & Security</h3></div><div class="tool-grid"><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-fortinet.png" alt="Fortinet logo" loading="lazy"></div><h3>Fortinet</h3><p>Firewall / Security</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-cisco.png" alt="Cisco logo" loading="lazy"></div><h3>Cisco</h3><p>Networking</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-omada.png" alt="TP-Link Omada logo" loading="lazy"></div><h3>TP-Link Omada</h3><p>Wireless</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-vlan.png" alt="VLAN logo" loading="lazy"></div><h3>VLAN</h3><p>Segmentation</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-dns-dhcp.png" alt="DNS / DHCP logo" loading="lazy"></div><h3>DNS / DHCP</h3><p>Network Services</p></div></div></div><div class="tool-group reveal" data-category="security"><div class="tool-group-head"><h3>Security Tools</h3></div><div class="tool-grid"><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-wazuh.png" alt="Wazuh logo" loading="lazy"></div><h3>Wazuh</h3><p>SIEM</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-kaspersky.png" alt="Kaspersky logo" loading="lazy"></div><h3>Kaspersky</h3><p>Endpoint Security</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-wireshark.png" alt="Wireshark logo" loading="lazy"></div><h3>Wireshark</h3><p>Packet Analysis</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-nmap.png" alt="Nmap logo" loading="lazy"></div><h3>Nmap</h3><p>Network Scanning</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-burp-suite.png" alt="Burp Suite logo" loading="lazy"></div><h3>Burp Suite</h3><p>Web Security</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-metasploit.png" alt="Metasploit logo" loading="lazy"></div><h3>Metasploit</h3><p>Security Testing</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-forticlient.png" alt="FortiClient logo" loading="lazy"></div><h3>FortiClient</h3><p>SSL / IPsec VPN</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-defender.png" alt="Windows Defender logo" loading="lazy"></div><h3>Windows Defender</h3><p>Endpoint Protection</p></div></div></div><div class="tool-group reveal" data-category="monitoring"><div class="tool-group-head"><h3>Monitoring & IT Operations</h3></div><div class="tool-grid"><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-glpi.png" alt="GLPI logo" loading="lazy"></div><h3>GLPI</h3><p>IT Asset Management</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-cpanel.png" alt="cPanel logo" loading="lazy"></div><h3>cPanel</h3><p>Hosting</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-zkteco.png" alt="ZKTeco logo" loading="lazy"></div><h3>ZKTeco</h3><p>Biometric Access</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-cpplus.png" alt="CP PLUS logo" loading="lazy"></div><h3>CP PLUS</h3><p>CCTV / NVR / DVR</p></div></div></div><div class="tool-group reveal" data-category="os"><div class="tool-group-head"><h3>Operating Systems</h3></div><div class="tool-grid"><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-windows.png" alt="Windows logo" loading="lazy"></div><h3>Windows</h3><p>OS</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-linux.png" alt="Linux logo" loading="lazy"></div><h3>Linux</h3><p>OS</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo kali-logo" src="https://gitlab.com/kalilinux/packages/kali-themes/-/raw/kali/master/kali-logos/logo.svg" alt="Kali Linux official logo" loading="lazy"></div><h3>Kali Linux</h3><p>Security OS</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="https://www.debian.org/logos/openlogo-nd.svg" alt="Debian logo" loading="lazy"></div><h3>Debian</h3><p>Linux OS</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-macos.png" alt="macOS logo" loading="lazy"></div><h3>macOS</h3><p>OS</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-powershell.png" alt="PowerShell logo" loading="lazy"></div><h3>PowerShell</h3><p>Scripting</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-bash.png" alt="Bash logo" loading="lazy"></div><h3>Bash</h3><p>Scripting</p></div></div></div><div class="tool-group reveal" data-category="hardware"><div class="tool-group-head"><h3>Hardware & Peripherals</h3></div><div class="tool-grid"><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-dell.png" alt="Dell logo" loading="lazy"></div><h3>Dell</h3><p>Hardware Support</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-hewlett-packard.png" alt="Hewlett Packard Enterprise logo" loading="lazy"></div><h3>Hewlett Packard Enterprise</h3><p>Hardware Support</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-hp.png" alt="HP logo" loading="lazy"></div><h3>HP</h3><p>Printers & Hardware</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-printers.png" alt="Printers logo" loading="lazy"></div><h3>Printers</h3><p>USB / IP</p></div></div></div><div class="tool-group reveal" data-category="other"><div class="tool-group-head"><h3>Other Tools</h3></div><div class="tool-grid"><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-veeam.png" alt="Veeam logo" loading="lazy"></div><h3>Veeam</h3><p>Backup & Recovery</p></div><div class="skill tool-card"><div class="icon"><img class="tool-logo" src="assets/logos/ref-vmware.png" alt="VMware logo" loading="lazy"></div><h3>VMware</h3><p>Virtualization</p></div></div></div></div></div></section>
+
+<section id="experience"><div class="container">
+<div class="head reveal"><div><div class="kicker">03. Professional Experience</div><h2>My Professional <span class="gradient">Journey</span></h2></div><p>Real experience. Real problems. Real solutions.</p></div>
+<div class="timeline">
+<article class="job reveal"><div class="date">2025 — Present</div><div class="job-card card"><div class="jobtop"><div><h3>IT Administrator / System Analyst</h3><div class="company">Seasontwo Senior Living</div></div><span class="current">CURRENT</span></div><ul>
+<li>Administer Microsoft 365, AWS Cloud and Azure environments with Entra ID, IAM and MFA.</li>
+<li>Provide end-to-end hardware support, system provisioning, OS imaging and diagnostics.</li>
+<li>Manage IT asset inventory, software licensing, allocation and lifecycle maintenance.</li>
+<li>Execute Teams, Outlook, SharePoint and Microsoft 365 Copilot Business administration.</li>
+<li>Manage Kaspersky Cloud Security, Fortinet firewall, VLANs, VPN and network infrastructure.</li>
+<li>Monitor security events using Wazuh SIEM and maintain TP-Link Omada wireless infrastructure.</li>
+<li>Perform installation, configuration, driver setup and troubleshooting for USB and IP/network-shared printers.</li>
+<li>Administer cPanel, CCTV/NVR/DVR and biometric authentication systems; perform regular backups, security patching and backup/disaster recovery operations.</li>
+<li>Support endpoint security, email security policies and threat-response activities across workplace systems.</li>
+</ul></div></article>
+<article class="job reveal"><div class="date">2023 — 2025</div><div class="job-card card"><div class="jobtop"><div><h3>Network Engineer</h3><div class="company">VTPL Solutions Pvt Ltd · Project: Lemon Tree Premier, Trivandrum</div></div></div><ul>
+<li>Designed and deployed enterprise LAN, WAN and wireless networks.</li><li>Configured Cisco routers and switches, firewalls, load balancers and EPABX.</li><li>Provided Tier-2 hardware and network troubleshooting for endpoints, printers, servers and racks.</li><li>Analyzed network packets using Wireshark for troubleshooting and visibility.</li><li>Assembled server/network racks and maintained structured cable management.</li>
+</ul></div></article>
+</div></div></section>
+
+<section id="projects"><div class="container">
+<div class="head reveal"><div><div class="kicker">04. Projects</div><h2>Featured <span class="gradient">Projects</span></h2></div><p>Real labs. Real attacks. Real learning.</p></div>
+<div class="projects"><article class="project card reveal"><div><div class="kicker">SECURITY LAB / 01</div><h3>Wazuh SIEM Threat Monitoring & Attack Simulation Lab</h3><p>Built a multi-node home lab with Wazuh Manager and a monitored agent, using Kali Linux on a Raspberry Pi as the attacker machine.</p><div class="tags"><span class="tag">WAZUH</span><span class="tag">FIM</span><span class="tag">KALI</span><span class="tag">SOC</span></div><ul class="points"><li>Simulated brute-force authentication attacks and network scanning.</li><li>Configured File Integrity Monitoring (FIM).</li><li>Analyzed logs and correlated attack vectors with security alerts.</li><li>Fine-tuned detection rules and automated active response.</li><li>Created SOC monitoring dashboards.</li></ul></div><div class="wazuh-visual-wrap"><div class="labvisual wazuh-dashboard" aria-label="Animated Wazuh Security Command Center">
+  <div class="wsc-topbar"><div><strong>wazuh<span>.</span></strong><small> SECURITY COMMAND CENTER</small></div><span class="wd-live"><i></i> LIVE</span><span class="wd-agents"><b class="wd-agent-count">12</b> endpoints online</span></div>
+  <div class="wsc-stage">
+    <div class="wsc-grid"></div><div class="wsc-scan"></div>
+    <div class="wsc-orbit orbit-a"></div><div class="wsc-orbit orbit-b"></div><div class="wsc-orbit orbit-c"></div>
+    <div class="wsc-core"><div class="wsc-core-ring"></div><div class="wsc-core-logo">wazuh<span>.</span></div><small>SIEM CORE</small></div>
+    <div class="wsc-node node-endpoints"><i>⌁</i><div><b>ENDPOINTS</b><span>12 ONLINE</span></div></div>
+    <div class="wsc-node node-logs"><i>▤</i><div><b>LOGS</b><span>1.2K EPS</span></div></div>
+    <div class="wsc-node node-network"><i>⌁</i><div><b>NETWORK</b><span>MONITORING</span></div></div>
+    <div class="wsc-node node-threats"><i>!</i><div><b>THREATS</b><span class="threat-live">2 ACTIVE</span></div></div>
+    <div class="wsc-node node-fim"><i>◈</i><div><b>FIM</b><span>ACTIVE</span></div></div>
+    <div class="wsc-stream"><header><b>LIVE EVENT STREAM</b><span><i></i> ACTIVE</span></header><div><i class="evt-green"></i><span>Authentication accepted</span><time>10:24:12</time></div><div><i class="evt-yellow"></i><span>File integrity change</span><time>10:23:45</time></div><div><i class="evt-red"></i><span>Brute force detected</span><time>10:22:31</time></div><div><i class="evt-green"></i><span>Agent connected</span><time>10:21:18</time></div></div>
+    <div class="wsc-pipeline"><span>COLLECT</span><b>→</b><span>ANALYZE</span><b>→</b><span>DETECT</span><b>→</b><strong>RESPOND</strong></div>
+  </div>
+  <div class="wd-footer"><span><i></i> DATA STREAM ACTIVE</span><b>Unified visibility · Threat detection · Active response</b><span class="wd-pulse">●</span></div>
+</div><div class="mini-quote"><div><strong>“<span>Simulate.</span><br>Analyze.<br><span>Detect.</span><br>Improve.”</strong></div></div></div></article></div>
+</div></section>
+
+<section id="credentials"><div class="container">
+<div class="head reveal"><div><div class="kicker">05. Certifications</div><h2>Certifications <span class="gradient">& Education</span></h2></div><p>Continuous learning for a better tomorrow.</p></div>
+<div class="credentials"><div class="card reveal"><div class="kicker">Certifications</div><div class="credgrid">
+<div class="cred"><div class="badge">01</div><div><h3>Fortinet NSE 1 Certified in Cybersecurity</h3><p>Fortinet Training Institute · Aug 2026 — Aug 2028</p></div></div>
+<div class="cred"><div class="badge">02</div><div><h3>CCNA Trainee Certificate</h3><p>Network Systemz, Trivandrum</p></div></div>
+<div class="cred"><div class="badge">03</div><div><h3>CEH v10 Trainee Certificate</h3><p>Network Systemz, Trivandrum</p></div></div>
+<div class="cred"><div class="badge">04</div><div><h3>Cloud Computing Trainee Certificate</h3><p>Network Systemz, Trivandrum</p></div></div>
+</div></div>
+<div class="edu"><div class="card reveal"><div class="kicker">Education</div><h3>Bachelor of Computer Applications (BCA) — Cyber Security</h3><p>Mewa Vanguard Business School</p></div><div class="card reveal"><div class="kicker">Education</div><h3>Higher Secondary</h3><p>NHSS Nellimoodu</p></div></div></div>
+</div></section>
+
+<section id="contact"><div class="container"><div class="contact card reveal"><div class="kicker">06. Contact</div><h2>Let's <span class="gradient">Connect</span></h2><p>Have a project, opportunity or just want to talk tech? I’d love to hear from you.</p><a class="email" href="mailto:kiranjith.am@gmail.com">kiranjith.am@gmail.com</a><div class="buttons contact-actions"><a class="btn primary" href="tel:+917907797617">☎ +91 79077 97617</a><a class="btn" href="mailto:kiranjith.am@gmail.com">✉ Send Email</a></div><div class="social" aria-label="Social links">
+<a class="social-link email-link" href="mailto:kiranjith.am@gmail.com" aria-label="Email Kiranjith" title="Email">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.5l9 6 9-6V7H3Zm18 10V9.9l-8.45 5.63a1 1 0 0 1-1.1 0L3 9.9V17h18Z"/></svg>
+</a>
+<a class="social-link linkedin-link" href="https://www.linkedin.com/in/kiranjith-a-m-1444162a5?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Kiranjith on LinkedIn" title="LinkedIn">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg>
+</a>
+<a class="social-link whatsapp-link" href="https://wa.me/917907797617" target="_blank" rel="noopener noreferrer" aria-label="Chat with Kiranjith on WhatsApp" title="WhatsApp">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.54 0 .22 5.32.22 11.86c0 2.09.55 4.13 1.59 5.93L.12 24l6.35-1.66a11.84 11.84 0 0 0 5.61 1.43h.01c6.54 0 11.86-5.32 11.86-11.86 0-3.17-1.23-6.14-3.43-8.43ZM12.09 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.77.99 1.01-3.68-.23-.38a9.87 9.87 0 0 1-1.51-5.28c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.9-9.9 9.9Zm5.43-7.41c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.21 5.09 4.5.71.31 1.27.49 1.7.63.71.23 1.35.2 1.86.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg>
+</a>
+</div></div></div></section>
+<footer class="container"><span>© 2026 KIRANJITH A M</span><span>IT ADMINISTRATOR · SYSTEM ANALYST · SOC ANALYST</span></footer>
+
+<script>
+const menu=document.getElementById('menu'), nav=document.getElementById('navlinks');
+menu.onclick=()=>{const open=nav.classList.toggle('open');menu.classList.toggle('is-open',open);menu.setAttribute('aria-expanded',String(open));};
+document.querySelectorAll('.navlinks a').forEach(a=>a.onclick=()=>{nav.classList.remove('open');menu.classList.remove('is-open');menu.setAttribute('aria-expanded','false')});
+
+const roles=['IT ADMINISTRATOR','CLOUD ENGINEER','SOC ANALYST','NETWORK ENGINEER'];
+let ri=0,ci=0,del=false;
+function type(){
+ const e=document.getElementById('typing'), w=roles[ri];
+ e.textContent=del?w.slice(0,ci--):w.slice(0,ci++);
+ if(!del&&ci>w.length){del=true;return setTimeout(type,950)}
+ if(del&&ci<0){del=false;ri=(ri+1)%roles.length;ci=0}
+ setTimeout(type,del?38:72);
+} type();
+
+const obs=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('show')),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
+
+document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');
+ const f=b.dataset.filter;
+ document.querySelectorAll('.tool-group[data-category]').forEach(g=>g.classList.toggle('is-hidden',f!=='all'&&g.dataset.category!==f));
+});
+
+const links=[...document.querySelectorAll('.navlinks a')];
+document.querySelectorAll('section').forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{
+ if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+s.id));
+}),{rootMargin:'-35% 0px -55% 0px'}).observe(s));
+
+addEventListener('scroll',()=>{
+ const d=document.documentElement;
+ document.getElementById('progress').style.width=(scrollY/(d.scrollHeight-innerHeight)*100)+'%';
+});
+
+const themes=['green','blue','red']; let theme=localStorage.getItem('portfolioTheme')||'green';
+const toggle=document.getElementById('themeToggle');
+function applyTheme(t){
+ document.body.classList.remove(...themes.map(x=>'theme-'+x));document.body.classList.add('theme-'+t);
+ localStorage.setItem('portfolioTheme',t);
+ toggle.dataset.theme=t;
+}
+applyTheme(theme);
+toggle.onclick=()=>{theme=themes[(themes.indexOf(theme)+1)%themes.length];applyTheme(theme)};
+</script>
+
+<style>
+/* Security Command Center — animated Wazuh visual */
+.wazuh-dashboard{width:100%;height:410px;padding:16px;background:radial-gradient(circle at 50% 48%,rgba(56,168,255,.10),transparent 28%),linear-gradient(145deg,#04101a,#02070c 65%,#06130e);border-left:1px solid var(--line);position:relative;overflow:hidden;color:#dff7ec}
+.wazuh-dashboard:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(53,255,134,.06),transparent 24%),linear-gradient(90deg,transparent 49.8%,rgba(56,168,255,.04) 50%,transparent 50.2%);pointer-events:none}
+.wsc-topbar{position:relative;z-index:4;display:flex;align-items:center;gap:8px;font-size:.42rem}.wsc-topbar>div{display:flex;align-items:baseline;gap:5px}.wsc-topbar strong{font:800 1.22rem Inter,sans-serif;letter-spacing:-.05em;color:#fff}.wsc-topbar strong span{color:#35ff86}.wsc-topbar small{font:600 .40rem ui-monospace;color:#658276;letter-spacing:.12em}.wsc-topbar .wd-live{margin-left:auto}.wsc-stage{position:absolute;inset:46px 10px 27px;overflow:hidden}.wsc-grid{position:absolute;inset:-40%;background-image:linear-gradient(rgba(56,168,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(56,168,255,.055) 1px,transparent 1px);background-size:24px 24px;transform:perspective(350px) rotateX(60deg) translateY(80px);opacity:.5}.wsc-scan{position:absolute;left:12%;right:12%;height:1px;top:5%;background:linear-gradient(90deg,transparent,rgba(53,255,134,.65),transparent);box-shadow:0 0 14px rgba(53,255,134,.55);animation:wscScan 4.8s linear infinite;opacity:.7}.wsc-orbit{position:absolute;left:36%;top:21%;width:28%;height:52%;border:1px solid rgba(56,168,255,.24);border-radius:50%;transform:rotate(24deg);box-shadow:0 0 25px rgba(56,168,255,.06);animation:wscOrbit 9s linear infinite}.wsc-orbit:before,.wsc-orbit:after{content:"";position:absolute;width:5px;height:5px;border-radius:50%;background:#38a8ff;box-shadow:0 0 10px #38a8ff;top:12%;left:50%}.wsc-orbit:after{top:auto;left:auto;right:9%;bottom:17%;background:#35ff86;box-shadow:0 0 10px #35ff86}.orbit-b{transform:rotate(-42deg) scale(.82);animation-duration:12s;border-color:rgba(53,255,134,.18)}.orbit-b:before{background:#35ff86;box-shadow:0 0 10px #35ff86;top:auto;bottom:8%;left:43%}.orbit-c{transform:rotate(82deg) scale(.62);animation-duration:7s;border-color:rgba(174,124,255,.17)}.orbit-c:before{background:#ae7cff;box-shadow:0 0 10px #ae7cff;left:25%;top:2%}.wsc-core{position:absolute;left:43%;top:31%;width:14%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#0d2735 0,#06141d 58%,#03080d 72%);border:1px solid rgba(56,168,255,.62);box-shadow:0 0 22px rgba(56,168,255,.22),inset 0 0 20px rgba(53,255,134,.08);z-index:3;animation:wscCore 3.8s ease-in-out infinite}.wsc-core-ring{position:absolute;inset:-7px;border:1px solid rgba(53,255,134,.38);border-radius:50%;animation:wscRing 2.8s ease-in-out infinite}.wsc-core-logo{font:800 .62rem Inter,sans-serif;color:#f3fff8;letter-spacing:-.05em}.wsc-core-logo span{color:#35ff86}.wsc-core small{position:absolute;bottom:-16px;font:600 .31rem ui-monospace;color:#5f7f72;letter-spacing:.12em}.wsc-node{position:absolute;display:flex;align-items:center;gap:5px;min-width:82px;padding:5px 6px;border:1px solid rgba(56,168,255,.18);background:rgba(4,14,21,.78);backdrop-filter:blur(5px);border-radius:6px;z-index:4;box-shadow:0 6px 18px rgba(0,0,0,.22);animation:wscFloat 4.2s ease-in-out infinite}.wsc-node i{width:18px;height:18px;border-radius:5px;display:grid;place-items:center;font-style:normal;font-size:.52rem;background:rgba(56,168,255,.13);color:#38a8ff}.wsc-node div{display:flex;flex-direction:column;gap:1px}.wsc-node b{font-size:.40rem;letter-spacing:.05em;color:#b7cec3}.wsc-node span{font-size:.34rem;color:#35ff86}.node-endpoints{left:7%;top:20%}.node-logs{right:7%;top:17%;animation-delay:.5s}.node-network{left:5%;bottom:21%;animation-delay:1s}.node-network i{color:#ae7cff;background:rgba(174,124,255,.12)}.node-network span{color:#9c8cff}.node-threats{right:5%;bottom:22%;animation-delay:1.5s}.node-threats i{color:#ff405d;background:rgba(255,64,93,.12);box-shadow:0 0 10px rgba(255,64,93,.12)}.node-threats span{color:#ff6479}.node-fim{left:43%;bottom:4%;animation-delay:.8s}.node-fim i{color:#35ff86;background:rgba(53,255,134,.12)}.wsc-stream{position:absolute;right:2%;top:48%;width:31%;min-width:115px;border:1px solid rgba(56,168,255,.16);background:rgba(3,12,18,.82);border-radius:6px;padding:6px;z-index:5;box-shadow:0 10px 25px rgba(0,0,0,.25)}.wsc-stream header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}.wsc-stream header b{font-size:.39rem;letter-spacing:.04em}.wsc-stream header span{font-size:.31rem;color:#35ff86}.wsc-stream header span i{display:inline-block;width:4px;height:4px;border-radius:50%;background:#35ff86;box-shadow:0 0 7px #35ff86;animation:wdBlink 1.2s infinite}.wsc-stream>div{display:grid;grid-template-columns:5px 1fr auto;gap:4px;align-items:center;font-size:.34rem;color:#8fa99d;padding:3px 0;border-top:1px solid rgba(255,255,255,.035);animation:wscEvent 4.8s ease-in-out infinite}.wsc-stream>div:nth-child(3){animation-delay:.7s}.wsc-stream>div:nth-child(4){animation-delay:1.4s}.wsc-stream>div:nth-child(5){animation-delay:2.1s}.wsc-stream>div i{width:4px;height:4px;border-radius:50%}.wsc-stream time{font:500 .27rem ui-monospace;color:#5c756a}.wsc-pipeline{position:absolute;left:8%;bottom:2%;display:flex;align-items:center;gap:5px;font:600 .31rem ui-monospace;color:#628074;z-index:4}.wsc-pipeline b{color:#38a8ff}.wsc-pipeline strong{color:#35ff86}.wd-footer{position:absolute;left:13px;right:13px;bottom:8px;display:flex;align-items:center;gap:7px;font:500 .39rem ui-monospace;color:#6f897d;z-index:6}.wd-footer span{display:flex;align-items:center;gap:4px}.wd-footer i{width:5px;height:5px;border-radius:50%;background:#35ff86;box-shadow:0 0 10px #35ff86;animation:wdBlink 1.4s infinite}.wd-footer b{font-weight:500;color:#8da79b}.wd-pulse{margin-left:auto;color:#35ff86;animation:wdBlink 1s infinite}.wazuh-dashboard{isolation:isolate}
+@keyframes wscOrbit{to{transform:rotate(384deg)}}@keyframes wscCore{50%{transform:scale(1.045);box-shadow:0 0 30px rgba(56,168,255,.34),inset 0 0 24px rgba(53,255,134,.11)}}@keyframes wscRing{50%{transform:scale(1.13);opacity:.55}}@keyframes wscFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}@keyframes wscScan{0%{top:4%;opacity:0}12%{opacity:.7}88%{opacity:.7}100%{top:92%;opacity:0}}@keyframes wscEvent{0%,100%{background:rgba(255,255,255,.018)}45%{background:rgba(53,255,134,.055)}}
+@media(max-width:900px){.project{grid-template-columns:1fr}.wazuh-visual-wrap{grid-template-columns:1fr}.labvisual{border-left:0;border-top:1px solid var(--line);min-height:360px}.wazuh-dashboard{height:360px}.wsc-stage{inset:44px 8px 25px}.wsc-stream{width:34%}.wsc-node{transform:scale(.94);transform-origin:center}.wsc-core{width:17%;left:41.5%}}
+@media(max-width:560px){.wd-metrics{grid-template-columns:repeat(2,1fr)}.wd-chart{height:118px}.wd-footer b{display:none}.wsc-stream{display:none}.wsc-pipeline{left:4%;gap:3px}.wsc-node{transform:scale(.82)}.wsc-core{width:24%;left:38%;top:29%}.wazuh-dashboard{padding:10px}.wsc-topbar{font-size:.4rem}.wsc-topbar small{display:none}}
+</style>
+<style>
+body.theme-blue{--accent:#38a8ff;--accent2:#00d8ff;--line:rgba(56,168,255,.20);--line-hover:rgba(56,168,255,.60);--icon-glow:rgba(56,168,255,.28)}
+body.theme-red{--accent:#ff405d;--accent2:#ff8a3d;--line:rgba(255,64,93,.20);--line-hover:rgba(255,64,93,.60);--icon-glow:rgba(255,64,93,.28)}
+
+
+/* Theme-reactive animated tool borders */
+.skill.tool-card{position:relative;isolation:isolate;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease}
+.skill.tool-card::after{content:"";position:absolute;inset:-1px;border-radius:9px;padding:1px;background:linear-gradient(120deg,transparent 15%,var(--accent) 48%,transparent 82%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transform:translateX(-35%);pointer-events:none;z-index:3}
+.skill.tool-card:hover{border-color:var(--accent);box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 35%,transparent),0 0 22px var(--icon-glow),inset 0 0 18px color-mix(in srgb,var(--accent) 8%,transparent);animation:toolThemePulse 1.35s ease-in-out infinite}
+.skill.tool-card:hover::after{opacity:1;animation:toolBorderSweep 1.15s linear infinite}
+@keyframes toolBorderSweep{to{transform:translateX(35%)}}
+@keyframes toolThemePulse{0%,100%{box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 28%,transparent),0 0 14px var(--icon-glow),inset 0 0 12px color-mix(in srgb,var(--accent) 6%,transparent)}50%{box-shadow:0 0 0 1px color-mix(in srgb,var(--accent) 55%,transparent),0 0 28px var(--icon-glow),inset 0 0 22px color-mix(in srgb,var(--accent) 12%,transparent)}}
+@media(prefers-reduced-motion:reduce){.skill.tool-card:hover,.skill.tool-card:hover::after{animation:none}}
+
+/* Reference-inspired Tools & Technologies layout */
+.tools-reference{max-width:1500px}
+.tools-layout{display:grid;grid-template-columns:1.25fr .95fr;gap:28px 34px;align-items:start}
+.tool-group{min-width:0}
+.m365-group{grid-column:1/-1}
+.tool-group-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:0 0 10px;padding-left:14px;border-left:5px solid var(--accent)}
+.tool-group-head h3{font-size:1.08rem;line-height:1.2;letter-spacing:-.02em}
+.tool-group-head span{color:#b9c9c0;font-size:.78rem}
+.tool-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+.m365-group .tool-grid{grid-template-columns:repeat(12,minmax(0,1fr))}
+.skill.tool-card{min-width:0;min-height:132px;padding:12px 7px 10px;border:1px solid var(--line);border-radius:8px;background:rgba(3,12,7,.78);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;overflow:hidden}
+.skill.tool-card:hover{transform:translateY(-4px);border-color:var(--line-hover)}
+.skill.tool-card .icon{width:100%;height:66px;margin:0 0 8px;display:grid;place-items:center;overflow:hidden;flex:0 0 66px}
+.skill.tool-card .tool-logo{width:72px;height:62px;max-width:100%;max-height:100%;object-fit:contain;display:block;filter:drop-shadow(0 0 6px var(--icon-glow));transition:transform .25s ease}
+.skill.tool-card:hover .tool-logo{transform:scale(1.06)}
+.skill.tool-card .kali-logo{width:84px;height:72px;filter:brightness(0) saturate(100%) invert(56%) sepia(95%) saturate(1840%) hue-rotate(184deg) brightness(101%) contrast(101%) drop-shadow(0 0 8px rgba(56,168,255,.42));}
+.skill.tool-card:hover .kali-logo{transform:scale(1.08);filter:brightness(0) saturate(100%) invert(56%) sepia(95%) saturate(1840%) hue-rotate(184deg) brightness(101%) contrast(101%) drop-shadow(0 0 15px rgba(56,168,255,.65));}
+.skill.tool-card h3{width:100%;font-size:.68rem;line-height:1.25;white-space:normal;overflow-wrap:anywhere;text-align:center}
+.skill.tool-card p{width:100%;font-size:.65rem;line-height:1.35;color:#7e9789;text-align:center;margin-top:4px;white-space:normal;overflow-wrap:anywhere}
+@media(max-width:1200px){.tools-layout{grid-template-columns:1fr}.m365-group{grid-column:auto}.m365-group .tool-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.tool-grid{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:700px){.tools-reference .head{align-items:flex-start;flex-direction:column}.tool-group-head{padding-left:10px;border-left-width:4px}.tool-group-head h3{font-size:.95rem}.tool-group-head span{font-size:.66rem}.tool-grid,.m365-group .tool-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.skill.tool-card{min-height:128px;padding:11px 7px 9px}.skill.tool-card .icon{height:62px;flex-basis:62px}.skill.tool-card .tool-logo{width:68px;height:58px}.skill.tool-card h3{font-size:.67rem}.skill.tool-card p{font-size:.62rem}}
+</style>
+</body>
+</html><style>
+/* Final polish: larger Wazuh labels + animated tool cards */
+.wsc-topbar{font-size:.52rem}
+.wsc-topbar strong{font-size:1.28rem}
+.wsc-topbar small{font-size:.36rem}
+.wsc-node{min-width:104px;padding:7px 8px;gap:7px}
+.wsc-node i{width:22px;height:22px;font-size:.66rem}
+.wsc-node b{font-size:.39rem}
+.wsc-node span{font-size:.34rem}
+.wsc-stream{padding:8px;width:32%}
+.wsc-stream header b{font-size:.38rem}
+.wsc-stream header span{font-size:.29rem}
+.wsc-stream>div{font-size:.34rem;gap:5px;padding:4px 0}
+.wsc-stream time{font-size:.27rem}
+.wsc-pipeline{gap:7px;font-size:.31rem}
+.wsc-core-logo{font-size:.62rem}
+.wsc-core small{font-size:.28rem}
+.wd-footer{font-size:.40rem}
+
+/* Every tool card gets a subtle living/animated presence */
+.skill.tool-card{
+  position:relative;
+  isolation:isolate;
+  animation:toolFloat 5.5s ease-in-out infinite, toolGlow 4.2s ease-in-out infinite;
+  animation-delay:var(--tool-delay,0s),calc(var(--tool-delay,0s) + .25s);
+}
+.skill.tool-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.045) 45%,transparent 68%);
+  transform:translateX(-120%);
+  animation:toolSweep 6s ease-in-out infinite;
+  animation-delay:calc(var(--tool-delay,0s) + 1s);
+  z-index:-1;
+}
+.skill.tool-card .tool-logo{
+  animation:toolIconPulse 3.4s ease-in-out infinite;
+  animation-delay:calc(var(--tool-delay,0s) + .35s);
+}
+.skill.tool-card:hover{
+  animation-play-state:paused;
+  transform:translateY(-8px) scale(1.025);
+  box-shadow:0 12px 28px rgba(0,0,0,.28),0 0 20px var(--icon-glow);
+}
+.skill.tool-card:hover .tool-logo{animation-play-state:paused;transform:scale(1.14) rotate(-2deg)}
+@keyframes toolFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes toolGlow{0%,100%{box-shadow:0 0 0 rgba(0,0,0,0)}50%{box-shadow:0 0 16px var(--icon-glow)}}
+@keyframes toolSweep{0%,55%{transform:translateX(-120%);opacity:0}65%{opacity:1}82%,100%{transform:translateX(120%);opacity:0}}
+@keyframes toolIconPulse{0%,100%{filter:drop-shadow(0 0 5px var(--icon-glow));transform:translateY(0)}50%{filter:drop-shadow(0 0 12px var(--icon-glow));transform:translateY(-2px)}}
+.skill.tool-card:nth-child(1){--tool-delay:0s}.skill.tool-card:nth-child(2){--tool-delay:.18s}.skill.tool-card:nth-child(3){--tool-delay:.36s}.skill.tool-card:nth-child(4){--tool-delay:.54s}.skill.tool-card:nth-child(5){--tool-delay:.72s}.skill.tool-card:nth-child(6){--tool-delay:.90s}.skill.tool-card:nth-child(7){--tool-delay:1.08s}.skill.tool-card:nth-child(8){--tool-delay:1.26s}.skill.tool-card:nth-child(9){--tool-delay:1.44s}.skill.tool-card:nth-child(10){--tool-delay:1.62s}.skill.tool-card:nth-child(11){--tool-delay:1.80s}.skill.tool-card:nth-child(12){--tool-delay:1.98s}
+@media(max-width:700px){
+  .wsc-topbar strong{font-size:1.05rem}.wsc-topbar small{font-size:.30rem}
+  .wsc-node{min-width:88px;padding:6px}.wsc-node b{font-size:.34rem}.wsc-node span{font-size:.30rem}
+  .wsc-stream>div{font-size:.30rem}.wsc-stream time{font-size:.24rem}.wsc-pipeline{font-size:.27rem}
+}
+@media(prefers-reduced-motion:reduce){.skill.tool-card,.skill.tool-card::before,.skill.tool-card .tool-logo{animation:none!important}}
+</style>
